@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "react-feather";
 
 
-export default function Carousel({
+export default function BannerCarousel({
   children: slides,
   autoSlide = false,
   autoSlideInterval = 3000,
@@ -23,11 +23,11 @@ export default function Carousel({
   }, []);
 
   return (
-  <div className="overflow-hidden relative max-h-[400px]">
+    <div className="overflow-hidden relative max-h-[400px]">
     <div
-      className="flex transition-transform ease-out duration-500"
-      style={{ transform: `translateX(-${curr *  20}%)` }}
-    >
+        className="flex transition-transform ease-out duration-500"
+        style={{ transform: `translateX(-${curr * 100}%)` }}
+      >
         {slides}
       </div>
       <div className="absolute inset-0 flex items-center justify-between p-4">

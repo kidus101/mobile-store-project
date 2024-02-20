@@ -1,5 +1,7 @@
 
+import BannerCarousel from "./BannerCarousel";
 import Card from "./Card";
+import Carousel from "./Carousel";
 
 
 
@@ -35,37 +37,70 @@ const CardList = async ({ title, subtitle }) => {
     })),
   };
 
+
   return (
     <div className="max-w-[1000px] mx-auto flex justify-between items-center p-4">
-    <div className="flex flex-wrap">
-      {/* First Column */}
-      <div className="w-full md:w-1/2 lg:w-1/5 p-4">
-        <div className="bg-white rounded-lg p-4 h-full">
-          <h2 className="text-lg font-bold mb-2">{title}</h2> {/* Added 'lg' to the text- utility */}
-          <p className="text-[11px] text-gray-400">{subtitle}</p>
+      <div className="flex flex-wrap">
+        {/* First Column */}
+        <div className="w-full md:w-1/2 lg:w-1/5 p-4">
+          <div className="bg-white rounded-lg p-4 h-full">
+            <h2 className="text-lg font-bold mb-2">{title}</h2>
+            <p className="text-[11px] text-gray-400">{subtitle}</p>
+          </div>
         </div>
-      </div>
-
-      {/* <div className="">{JSON.stringify(cardListData)}</div> */}
-
-      <div className="w-full lg:w-4/5 p-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-1">
-          {cardListData.cardList.map((card, index) => (
-            <Card  
-              key={index}
-              imageUrl={card.uri[0]}
-              title={card.title}
-              coupon={card.applyCoupon}
-              rating={card.rating}
-              price={card.price}
-              discountRate={card.discountRate}
-            />
-          ))}
+  
+        {/* Remaining Columns */}
+        <div className="max-w-[1000px] lg:w-4/5 p-4">
+          <Carousel autoSlide={true} autoSlideInterval={2000}>
+            {cardListData.cardList.map((card, index) => (
+              <Card
+                key={index}
+                imageUrl={card.uri[0]}
+                title={card.title}
+                coupon={card.applyCoupon}
+                rating={card.rating}
+                price={card.price}
+                discountRate={card.discountRate}
+              />
+            ))}
+          </Carousel>
         </div>
       </div>
     </div>
-  </div>
   );
+  
+
+    
+  //   <div className="max-w-[1000px] mx-auto flex justify-between items-center p-4">
+  //   <div className="flex flex-wrap">
+  //     {/* First Column */}
+  //     <div className="w-full md:w-1/2 lg:w-1/5 p-4">
+  //       <div className="bg-white rounded-lg p-4 h-full">
+  //         <h2 className="text-lg font-bold mb-2">{title}</h2> {/* Added 'lg' to the text- utility */}
+  //         <p className="text-[11px] text-gray-400">{subtitle}</p>
+  //       </div>
+  //     </div>
+
+  //     {/* <div className="">{JSON.stringify(cardListData)}</div> */}
+
+  //     <div className="w-full lg:w-4/5 p-4">
+  //       <div className="grid grid-cols-2 lg:grid-cols-4 gap-1">
+  //         {cardListData.cardList.map((card, index) => (
+  //           <Card  
+  //             key={index}
+  //             imageUrl={card.uri[0]}
+  //             title={card.title}
+  //             coupon={card.applyCoupon}
+  //             rating={card.rating}
+  //             price={card.price}
+  //             discountRate={card.discountRate}
+  //           />
+  //         ))}
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  
 };
 
 export default CardList;

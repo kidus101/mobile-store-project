@@ -12,7 +12,7 @@ const Card = ({
   rating,
 }) => {
   return (
-    <div className="p-0">
+    <div className="p-0 min-w-[190px] overflow-y-auto">
       <div className="bg-white rounded-lg p-1 h-full relative">
         <img
           src={imageUrl}

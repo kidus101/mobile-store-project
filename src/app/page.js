@@ -5,6 +5,7 @@ import Carousel from "./components/Carousel";
 import Icons from "./components/Icon";
 import CardList from "./components/CardList";
 import Icon from "./components/Icon";
+import BannerCarousel from "./components/BannerCarousel";
 
 
 const slides = [
@@ -118,7 +119,7 @@ const Home = async () => {
       <Navbar />
       <div className="max-w-[1000px] mx-auto flex justify-between items-center p-4">
         <div className="max-h-[350px]   overflow-hidden">
-          <Carousel autoSlide={true} autoSlideInterval={25000}>
+          <BannerCarousel autoSlide={true} autoSlideInterval={25000}>
             {bannerData.map((banner, i) => (
               <Image
                 width={1000}
@@ -129,7 +130,7 @@ const Home = async () => {
                 objectFit="cover"
               />
             ))}
-          </Carousel>
+          </BannerCarousel>
         </div>
       </div>
       {/* <div className="">{JSON.stringify({ ...cardListData })}</div> */}
