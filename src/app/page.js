@@ -6,7 +6,6 @@ import Icons from "./components/Icon";
 import CardList from "./components/CardList";
 import Icon from "./components/Icon";
 
-
 const slides = [
   "https://dvd6ljcj7w3pj.cloudfront.net/static/main_banner/1707875671502-메인배너_PC_센터_음향기기빅세일.png",
   "https://dvd6ljcj7w3pj.cloudfront.net/static/main_banner/1702276829496-메인배너_PC_리턴리뉴프로모션_1101.png",
@@ -94,15 +93,6 @@ const Home = async () => {
   const publicationKeys = filteredCardsPublications.flatMap((array) =>
     array.map((obj) => obj.publication)
   );
-
-  // const cardListData = {
-  //   titles: publicationKeys.map((publication) => publication.title),
-  //   ratings: publicationKeys.map((publication) => publication.rating),
-  //   applyCoupons: publicationKeys.map((publication) => publication.applyCoupon),
-  //   uris: publicationKeys.flatMap((publication) =>
-  //     publication.media ? publication.media.map((media) => media.uri) : []
-  //   ),
-  // };
 
   const cardListData = {
     cardList: publicationKeys.map((publication) => ({
