@@ -1,9 +1,6 @@
-
 import BannerCarousel from "./BannerCarousel";
 import Card from "./Card";
 import Carousel from "./Carousel";
-
-
 
 const getCardsData = async () => {
   const response = await fetch(
@@ -37,8 +34,9 @@ const CardList = async ({ title, subtitle }) => {
     })),
   };
 
-
   return (
+
+    
     <div className="max-w-[1000px] mx-auto flex justify-between items-center p-4">
       <div className="flex flex-wrap">
         {/* First Column */}
@@ -48,29 +46,27 @@ const CardList = async ({ title, subtitle }) => {
             <p className="text-[11px] text-gray-400">{subtitle}</p>
           </div>
         </div>
-  
+
         {/* Remaining Columns */}
         <div className="max-w-[1000px] lg:w-4/5 p-4">
-          <Carousel autoSlide={true} autoSlideInterval={2000}>
-            {cardListData.cardList.map((card, index) => (
-              <Card
-                key={index}
-                imageUrl={card.uri[0]}
-                title={card.title}
-                coupon={card.applyCoupon}
-                rating={card.rating}
-                price={card.price}
-                discountRate={card.discountRate}
-              />
-            ))}
-          </Carousel>
-        </div>
+              <Carousel autoSlide={true} autoSlideInterval={2000}>
+                {cardListData.cardList.map((card, index) => (
+                  <Card
+                    key={index}
+                    imageUrl={card.uri[0]}
+                    title={card.title}
+                    coupon={card.applyCoupon}
+                    rating={card.rating}
+                    price={card.price}
+                    discountRate={card.discountRate}
+                  />
+                ))}
+              </Carousel>
+            </div>
       </div>
     </div>
   );
-  
 
-    
   //   <div className="max-w-[1000px] mx-auto flex justify-between items-center p-4">
   //   <div className="flex flex-wrap">
   //     {/* First Column */}
@@ -86,7 +82,7 @@ const CardList = async ({ title, subtitle }) => {
   //     <div className="w-full lg:w-4/5 p-4">
   //       <div className="grid grid-cols-2 lg:grid-cols-4 gap-1">
   //         {cardListData.cardList.map((card, index) => (
-  //           <Card  
+  //           <Card
   //             key={index}
   //             imageUrl={card.uri[0]}
   //             title={card.title}
@@ -100,7 +96,6 @@ const CardList = async ({ title, subtitle }) => {
   //     </div>
   //   </div>
   // </div>
-  
 };
 
 export default CardList;
